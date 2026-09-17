@@ -64,60 +64,70 @@ const eight = document.getElementById("8");
 const nine = document.getElementById("9");
 
 const clearBtn = document.getElementById("clear");
-
-/* 
-    <button id="add">+</button>
-                <button id="subtract">-</button>
-                <button id="multiply" aria-label="times">x</button>
-                <button id="divide">/</button>
-                <button id="equal">=</button>
-                <button id="clear">Clear</button>
-*/
+const plus = document.getElementById("add");
+const minus = document.getElementById("subtract");
+const times = document.getElementById("multiply");
+const devideBy = document.getElementById("divide");
+const equal = document.getElementById("equal");
 
 one.addEventListener("click", () => {
     display.textContent += "1";
+    entered += "1";
 })
 
 two.addEventListener("click", () => {
     display.textContent += "2";
+     entered += "2";
 })
 
 three.addEventListener("click", () => {
     display.textContent += "3";
+     entered += "3";
 })
 
 four.addEventListener("click", () => {
     display.textContent += "4";
+    entered += "4";
 })
 
 five.addEventListener("click", ()=> {
     display.textContent += "5";
+    entered += "5";
 })
 
 six.addEventListener("click", ()=>{
     display.textContent += "6";
+    entered += "6";
+
 })
 
 seven.addEventListener("click", () => {
     display.textContent += "7";
+    entered += "7";
 })
 
 eight.addEventListener("click", () => {
     display.textContent += "8";
+    entered += "8";
 })
 
 nine.addEventListener("click", () => {
     display.textContent += "9";
+    entered += "9";
 })
 
 zero.addEventListener("click", ()=> {
-
     display.textContent += "0";
+    entered += "0";
 })
 
 clearBtn.addEventListener("click", ()=>{
     display.textContent = "";
+    entered = "";
 })
 
-
-
+equal.addEventListener("click", () => {
+    display.textContent = entered;
+    console.log(entered);
+    
+})
