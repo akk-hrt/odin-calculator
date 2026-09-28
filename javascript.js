@@ -47,7 +47,8 @@ let displayValue = "0";
 let shouldResetDisplay = false;
 
 // Create Display functions
-const display = document.getElementById("display")
+const display = document.getElementById("display");
+const buttons = document.querySelectorAll("button");
 
 function updateDisplay(value) {
     const text = String(value);
@@ -122,7 +123,7 @@ function calculateResult(){
 
 
 // Connect the buttons to JS
-const buttons = document.querySelectorAll("button");
+
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
