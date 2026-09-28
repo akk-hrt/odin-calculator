@@ -50,7 +50,8 @@ let shouldResetDisplay = false;
 const display = document.getElementById("display")
 
 function updateDisplay(value) {
-    display.textContent = value;
+    const text = String(value);
+    display.textContent = text.slice(0, 12);
 }
 
 function clearCalculator() {
@@ -84,7 +85,7 @@ function chooseOperator (nextOperator){
 
     if (firstNumber === null) {
         firstNumber = currentNumber;
-    } else if (operator !== null && !shouldResetDisplay) {
+    } else if (!shouldResetDisplay) {
         secondNumber = currentNumber;
         const result = operate(firstNumber, operator, secondNumber);
 
@@ -103,11 +104,18 @@ function calculateResult(){
     }
 
     secondNumber = Number(displayValue);
-    const result = operate(firstNumber, operator, secondNumber);
+    const result = formatResult(operate(firstNumber, operator, secondNumber));
 
     updateDisplay(result);
 
-    firstNumber = result;
+    if (typeof result === "number") {
+        firstNumber = result;
+    } else {
+        firstNumber = null;
+    }
+
+
+
     secondNumber = null;
     shouldResetDisplay = true;
 }
@@ -136,4 +144,12 @@ buttons.forEach((button) => {
     })
 })
 
-// To-Do: Handle Consecutive Operators
+
+// Handle long decimal results
+function formatResult(result) {
+    if (typeof result !== "number"){
+        return result;
+    }
+
+    return Number(result.toFixed(10));
+}
